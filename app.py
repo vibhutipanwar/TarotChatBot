@@ -9,7 +9,7 @@ import requests
 from concurrent.futures import ThreadPoolExecutor
 import threading
 
-# API Key Configuration - directly set the key here
+# API Key Configuration
 GEMINI_API_KEY = "AIzaSyALn6ikSsnh3FAjlNHJLryyYOiCqx5owWU"
 
 # Tarot deck information
@@ -29,7 +29,7 @@ MINOR_ARCANA_NUMBERS = [
     "Page", "Knight", "Queen", "King"
 ]
 
-# Reading types - Define this before using it
+# Reading types 
 READING_TYPES = {
     "one_card": {
         "name": "One Card",
@@ -88,16 +88,14 @@ FULL_DECK = generate_full_deck()
 
 
 # Image URLs for all 78 Tarot cards with fallback options
-# Improved function for better compatibility with sacred-texts.com images
 def generate_card_image_urls():
     card_images = {}
 
-    # Use sacred-texts.com as primary source, with consistent URL formatting
+    # Used sacred-texts.com as primary source, with consistent URL formatting
     PRIMARY_URL_TEMPLATE = "https://www.sacred-texts.com/tarot/pkt/img/{}.jpg"
     FALLBACK_URL_TEMPLATE = "https://www.tarot.com/images/cards/rider-waite/{}.jpg"
 
     # Mapping for Major Arcana cards to URL-friendly formats for sacred-texts.com
-    # sacred-texts.com uses specific naming convention: ar00, ar01, etc.
     major_arcana_mapping = {
         "The Fool": "ar00", "The Magician": "ar01", "The High Priestess": "ar02",
         "The Empress": "ar03", "The Emperor": "ar04", "The Hierophant": "ar05",
@@ -108,8 +106,7 @@ def generate_card_image_urls():
         "The Moon": "ar18", "The Sun": "ar19", "Judgement": "ar20", "The World": "ar21"
     }
 
-    # Mapping for Minor Arcana on sacred-texts.com
-    # sacred-texts.com uses format: cu01 (Ace of Cups), pe10 (Ten of Pentacles), etc.
+    # Mapping for Minor Arcana on sacred-texts.com.
     suit_codes = {"Cups": "cu", "Pentacles": "pe", "Swords": "sw", "Wands": "wa"}
     number_codes = {
         "Ace": "ac", "Two": "02", "Three": "03", "Four": "04", "Five": "05",
@@ -121,7 +118,6 @@ def generate_card_image_urls():
     for card in MAJOR_ARCANA:
         if card in major_arcana_mapping:
             code = major_arcana_mapping[card]
-            # For tarot.com, Major Arcana uses a different format
             fallback_code = code
 
             card_images[card] = {
@@ -179,7 +175,7 @@ def draw_cards(num_cards):
     return drawn_cards
 
 
-# Generate prompt for AI based on reading type - optimized for faster response
+# Generate prompt for AI based on reading type
 def generate_reading_prompt(reading_type, cards, question=""):
     prompt = f"You are a tarot reader creating a concise but insightful {READING_TYPES[reading_type]['name']} reading. "
     prompt += f"Question: '{question}'. "
@@ -253,7 +249,6 @@ def get_gemini_response(prompt, max_time=15):
             "temperature": 0.7,
             "top_p": 0.8,
             "top_k": 40,
-            "max_output_tokens": 800,  # Limit output length for faster response
         }
 
         response = model.generate_content(
@@ -292,7 +287,7 @@ def save_reading_history(reading_type, question, cards, response):
 
 # Improved function to format cards as HTML for Gradio with better image loading
 def format_cards_html(cards):
-    # First, determine how many cards we're displaying to adjust the layout
+    # Determining how many cards we're displaying to adjust the layout
     card_count = len(cards)
     cards_per_row = min(4, card_count)  # Maximum 4 cards per row
 
