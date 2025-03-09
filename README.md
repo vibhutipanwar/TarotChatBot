@@ -17,8 +17,7 @@ https://huggingface.co/spaces/VibhutiPanwar/TarotChatBot
 
 - **Python** – Backend logic & NLP processing
 - **OpenAI/Gemini API** – AI-generated responses
-- **HTML, CSSt** – Frontend
-- **Firebase/MongoDB** – User interaction storage (if implemented)
+- **HTML, CSS** – Frontend
 
 ## 🤝 Contributions
 
