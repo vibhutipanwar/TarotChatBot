@@ -27,4 +27,4 @@ Contributions are welcome! Submit issues, feature requests, or pull requests to 
 ### 📬 Connect with Me
 
 - **GitHub** – [@vibhutipanwar](https://github.com/vibhutipanwar)
-- **LinkedIn** – [Your LinkedIn](https://linkedin.com/in/vibhuti-panwar)
+- **LinkedIn** – [vibhuti-panwar](https://linkedin.com/in/vibhuti-panwar)
