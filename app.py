@@ -9,8 +9,8 @@ import requests
 from concurrent.futures import ThreadPoolExecutor
 import threading
 
-# API Key Configuration
-GEMINI_API_KEY = "AIzaSyALn6ikSsnh3FAjlNHJLryyYOiCqx5owWU"
+# API Key Configuration 
+GEMINI_API_KEY = "Your_API_Key"
 
 # Tarot deck information
 MAJOR_ARCANA = [
