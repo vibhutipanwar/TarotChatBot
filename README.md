@@ -20,7 +20,7 @@ https://huggingface.co/spaces/VibhutiPanwar/TarotChatBot
 - **HTML, CSS** – Frontend
 
 ## 🤝 Contributions
-
+hello
 Contributions are welcome! Submit issues, feature requests, or pull requests to improve the project.
 
 ### 📬 Connect with Me
